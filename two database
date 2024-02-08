@@ -1,0 +1,26 @@
+//do the change in config->database
+    'second_database' => [
+            'driver' => 'mysql',
+            'host' => env('SECOND_DB_HOST', 'localhost'),
+            'port' => env('SECOND_DB_PORT', '3306'),
+            'database' => env('SECOND_DB_DATABASE', 'i8731673_wp1'),
+            'username' => env('SECOND_DB_USERNAME', 'i8731673_wp1'),
+            'password' => env('SECOND_DB_PASSWORD', 'P.Xgp2khJnmRhNxAnPu54'),
+            // ...
+        ],
+
+
+//mention in your project env file
+  SECOND_DB_CONNECTION=mysql
+SECOND_DB_HOST=127.0.0.1
+SECOND_DB_PORT=3306
+SECOND_DB_DATABASE=u486830008_ftRKy
+SECOND_DB_USERNAME=u486830008_nWCOz
+SECOND_DB_PASSWORD=fg0]bM:l6A
+
+//in controller
+    $blogs = DB::connection('second_database');
+            $blogs = $blogs->table('wp_posts');
+            $blogs = $blogs->where('post_type', 'post');
+            $blogs = $blogs->where('post_status', 'publish');
+            $blogs = $blogs->get();
